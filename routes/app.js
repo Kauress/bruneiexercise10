@@ -20,7 +20,24 @@ router.get('/contact', function(req, res){
 router.post('/dashboard', function(req,res){
     console.log(req.body.name)
     console.log(req.body.password)
-    res.render("dashboard", {name: req.body.name, password: req.body.password});
+    let new_user = new User(req.body);
+    console.log(new_user);
+    new_user.save(function(err, result){
+        if(err){
+            console.log(err);
+            //res.status(401).send('auth error');
+            // or use
+            // return
+        } else {
+            res.render("dashboard", {name: req.body.name, password: req.body.password});
+        
+        }
+    
+    // it is within post, as when the user posts their info only then will we save the user
+    
+    });
+
+
 })
 
 module.exports = router;

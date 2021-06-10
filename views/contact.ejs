@@ -4,17 +4,26 @@
     input nama must match mongoose Schema!
     don't forget a button with type of "submit"
  -->
-<form action="/dashboard" method="POST">
+
+ <div class="container">
+<div class="row">
+    <div class="col-sm-6">
+        <form action="/dashboard" method="POST">
     
-    <div class="name_container">
-        <label for="name">Username:</label>
-        <input type="text" name="name" id="">
-    </div>
+            <div class="name_container">
+                <label for="name">Username:</label>
+                <input type="text" name="name" id="">
+            </div>
+        
+            <div class="password_container">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="">
+            </div>
+        
+            <button type="submit">Submit</button>
+        </form>
 
-    <div class="password_container">
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="">
-    </div>
 
-    <button type="submit">Submit</button>
-</form>
+    </div>
+</div>
+ </div>

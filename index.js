@@ -5,7 +5,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
-const PORT =  4040;
+const layout = require("express-layout");
+const PORT =  8000;
 
 // require routes .js files necessary
 const routes = require('./routes/app');
@@ -24,6 +25,10 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+app.use(layout());
+app.use(express.static("public"));//everything in public is now accessible using / as static files
+
+
 
 // use routes
 app.use("/", routes)
@@ -33,10 +38,3 @@ app.listen(PORT, function() {
     console.log(`index.js server listening on port: ${PORT}`)
 })
 
-/*
-copy paste your code here if you want us to help you debug
-yes just copy paste your stuff here
-
-im connected to mine now ('__')v
-we all are connected together
-*/
