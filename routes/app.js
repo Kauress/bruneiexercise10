@@ -28,6 +28,7 @@ router.post('/dashboard', function(req,res){
             //res.status(401).send('auth error');
             // or use
             // return
+            res.render("error")
         } else {
             res.render("dashboard", {name: req.body.name, password: req.body.password});
         
@@ -37,7 +38,28 @@ router.post('/dashboard', function(req,res){
     
     });
 
+})
+
+router.get("/login", function(req, res){
+    res.render("login");
+})
+
+router.post("/login", function(req,res){
+//use authenticate method here
+User.authenticate(req.body.name, req.body.password, function(error, user){
+ if(error || !user){
+
+    /*
+ or write a use case for  password === null 
+ Try rendering custom error message
+
+    */
+res.render("error")
+ } else {
+res.render("dashboard", {name: req.body.name, password: req.body.password})
+ }
 
 })
+});
 
 module.exports = router;
