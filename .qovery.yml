@@ -1,0 +1,11 @@
+---
+application:
+  name: "bruneiexercise10"
+  project: "brunei"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-bruneiexercise10"
+  routes:
+  - application_name: "bruneiexercise10"
+    paths:
+    - "/*"
