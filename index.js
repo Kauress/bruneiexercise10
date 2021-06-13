@@ -6,7 +6,7 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const layout = require("express-layout");
-const PORT =  8080;
+const PORT = process.env.PORT;
 
 // require routes .js files necessary
 const routes = require('./routes/app');
