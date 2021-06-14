@@ -6,7 +6,7 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const layout = require("express-layout");
-//const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
 
 // require routes .js files necessary
 const routes = require('./routes/app');
@@ -33,11 +33,10 @@ app.use(express.static("public"));//everything in public is now accessible using
 // use routes
 app.use("/", routes)
 
-/*
+
 // listen on port code
 app.listen(PORT, function() {
     console.log(`index.js server listening on port: ${PORT}`)
 })
 
-*/
-module.exports = app;
+
